@@ -537,3 +537,113 @@ Meet [FizzBuzz](https://github.com/zenware/FizzBuzz), the evolution of [hello-wo
 * [Zombie](z/zombie.zombie)
 * [Zonnon](z/zonnon.znn)
 * [Zsh](z/zsh.zsh)
+
+
+
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;}
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid202\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid402\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\fs72 \cf0 Ellipsoid.py (v. 1.0)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}System Requirements: Python 3 Anaconda (numpy and scipy)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	\uc0\u8226 	}Minimum Volume Enclosing Ellipsoid (MVEE): the smallest ellipsoid that can enclose a set of points in R
+\fs24 \super 3
+\fs36 \nosupersub . The process for determining the MVEE follows the following steps. \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}It determines the smallest ellipsoid enclosing the set of points given a certain tolerance (0 < tolerance < 1); the smaller the tolerance, less points will lie outside of the ellipsoid. This step continuously increases the size of the ellipsoid to enclose the largest point in a given sample, and increases sample size until the error in the calculation is smaller than the allowed tolerance. This function (lines 23-43) return the vectors 
+\f1\b A
+\f0\b0  and 
+\f1\b c
+\f0\b0 , where the eigenvectors of 
+\f1\b A
+\f0\b0  define the principal axes of the ellipsoid, and the vector 
+\f1\b c
+\f0\b0  is the centroid of the ellipsoid.\
+{\listtext	\uc0\u8259 	}The values of 
+\f1\b A
+\f0\b0  and 
+\f1\b c
+\f0\b0  provided by the above function satisfy the definition for the minimum enclosing ellipsoid for the set of data: (
+\f1\b X
+\f0\b0  - 
+\f1\b c
+\f0\b0 )
+\fs24 \super T
+\fs36 \nosupersub  *
+\f1\b A
+\f0\b0 * (
+\f1\b X
+\f0\b0  - 
+\f1\b c
+\f0\b0 ) = 1, where 
+\f1\b X
+\f0\b0  is the solution vector.\
+{\listtext	\uc0\u8259 	}This format for the ellipsoid is then parameterized in spherical coordinates in the following format: \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+\cf0 x = 
+\f2\i\fs40 a
+\f0\i0\fs36 *cos(\cf2 \expnd0\expndtw0\kerning0
+\uc0\u952 )*cos(\u966 ),\
+y = 
+\f2\i\fs40 \cf0 \kerning1\expnd0\expndtw0 b
+\f0\i0\fs36 *cos(\cf2 \expnd0\expndtw0\kerning0
+\uc0\u952 )*sin(\u966 ),\
+z = 
+\f2\i\fs40 \cf0 \kerning1\expnd0\expndtw0 c
+\f0\i0\fs36 *cos(\cf2 \expnd0\expndtw0\kerning0
+\uc0\u952 )*cos(\u966 )\cf0 \kerning1\expnd0\expndtw0 ,\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 		where:\
+		-(\cf2 \expnd0\expndtw0\kerning0
+\uc0\u960 /2) <= \cf2 \uc0\u952  <= \u960 /2 ,  -\u960  <= \u966  <= \u960  , and 
+\f2\i\fs40 \cf0 \kerning1\expnd0\expndtw0 a
+\f0\i0\fs24 \super -2
+\fs36 \cf2 \expnd0\expndtw0\kerning0
+\nosupersub , 
+\f2\i\fs40 \cf0 \kerning1\expnd0\expndtw0 b
+\f0\i0\fs24 \super -2
+\fs36 \cf2 \expnd0\expndtw0\kerning0
+\nosupersub , and
+\f2\i\fs40 \cf0 \kerning1\expnd0\expndtw0  c
+\f0\i0\fs24 \super -2
+\fs36 \cf2 \expnd0\expndtw0\kerning0
+\nosupersub  are the eigenvalues of 
+\f1\b A
+\f0\b0 \
+\cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8226 	}Acknowledgments: \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}This code was adapted from a script originally posted at stack overflow. \
+{\listtext	\uc0\u8259 	}Link: https://stackoverflow.com/questions/14016898/port-matlab-bounding-ellipsoid-code-to-python\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls4\ilvl0\cf0 {\listtext	\uc0\u8226 	}Written by Oren Rosenberg  \'a9 2018 \
+{\listtext	\uc0\u8226 	}Email: rose0775@umn.edu\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+}
